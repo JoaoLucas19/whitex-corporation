@@ -26,3 +26,19 @@ A versão publicada atualmente está hospedada na Hostinger Business. A publica�
 
 ## Identidade
 **WhiteX Corporation** · Ideias que viram código.
+
+## Fluxo de branches
+
+- `develop`: desenvolvimento e homologação em `/whitex-develop-preview/`.
+- `main`: versões revisadas e homologação em `/whitex-git-preview/`.
+- Produção (`/`): publicação separada e supervisionada, após backup e validação.
+
+### Publicando alterações
+
+1. Desenvolver e testar na `develop`.
+2. Abrir Pull Request de `develop` para `main`.
+3. Revisar o diff e validar o site antes do merge.
+4. Fazer o merge para atualizar a prévia da `main` via webhook.
+5. Publicar em produção somente após backup e aprovação explícita.
+
+> Observação: a atualização automática das pastas de preview não significa publicação automática na raiz do domínio.
