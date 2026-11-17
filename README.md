@@ -42,3 +42,5 @@ A versão publicada atualmente está hospedada na Hostinger Business. A publica�
 5. Publicar em produção somente após backup e aprovação explícita.
 
 > Observação: a atualização automática das pastas de preview não significa publicação automática na raiz do domínio.
+
+<!-- Verificação de deploy em diretório protegido: 2026-11-17 -->
