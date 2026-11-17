@@ -13,15 +13,6 @@
       menuButton.setAttribute('aria-label', 'Abrir menu');
     }));
   }
-  // Voltar ao topo: não depender apenas da navegação por âncora no mobile.
-  document.querySelectorAll('a.back-top').forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollTo({ top: 0, left: 0, behavior: reducedMotion ? 'auto' : 'smooth' });
-    });
-  });
-
   const year = document.querySelector('#year');
   if (year) year.textContent = new Date().getFullYear();
 })();
