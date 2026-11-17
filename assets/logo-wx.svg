@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 240" role="img" aria-labelledby="title desc">
+<title id="title">Monograma WX da WhiteX Corporation</title>
+<desc id="desc">Letras W e X geométricas em branco e roxo, atravessadas por um arco orbital.</desc>
+<defs>
+  <linearGradient id="w" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#FFFFFF"/><stop offset="1" stop-color="#BDB2FF"/></linearGradient>
+  <linearGradient id="x" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#B9A5FF"/><stop offset="1" stop-color="#704BEE"/></linearGradient>
+  <linearGradient id="orbit" x1="0" y1="1" x2="1" y2="0"><stop stop-color="#6746D9" stop-opacity=".1"/><stop offset=".45" stop-color="#E9DEFF"/><stop offset="1" stop-color="#8D62FF"/></linearGradient>
+</defs>
+<path d="M25 61H57L78 149L100 102H122L143 149L165 61H197L163 188H134L111 140L89 188H60Z" fill="url(#w)"/>
+<path d="M184 61H220L246 99L272 61H310L266 123L312 188H274L245 147L217 188H179L225 123Z" fill="url(#x)"/>
+<path d="M19 189C99 160 203 91 316 31" fill="none" stroke="url(#orbit)" stroke-width="7" stroke-linecap="round"/>
+<path d="M278 45C292 36 307 31 322 28" fill="none" stroke="#C5AAFF" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+</svg>
