@@ -42,3 +42,11 @@ A versão publicada atualmente está hospedada na Hostinger Business. A publica�
 5. Publicar em produção somente após backup e aprovação explícita.
 
 > Observação: a atualização automática das pastas de preview não significa publicação automática na raiz do domínio.
+
+## SEO técnico
+
+- `index.html`: título, descrição, canonical, Open Graph, Twitter Card e JSON-LD institucional.
+- `robots.txt`: indica o sitemap e desencoraja rastreamento das pastas de prévia. **Não substitui autenticação por senha.**
+- `sitemap.xml`: inclui somente a página oficial da WhiteX (site de página única).
+
+Os arquivos de SEO são implantados automaticamente na pasta de desenvolvimento, mas **somente funcionam no domínio principal após uma publicação manual supervisionada**. Não liberar a pasta de homologação nem a de desenvolvimento para indexação. Após publicar, conferir `/robots.txt`, `/sitemap.xml` e a URL canônica; depois, enviar o sitemap pelo Google Search Console.
