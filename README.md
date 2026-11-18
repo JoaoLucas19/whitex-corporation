@@ -80,3 +80,17 @@ Melhorias na branch `develop`:
 **Alterações:** no mobile (<=700px), remover o filtro do contêiner e diminuir o filtro na imagem; manter a aparência desktop. Mudar a decodificação da imagem de LCP para `sync`, mantendo `fetchpriority="high"`. Versionar URL do CSS para evitar estilo antigo em cache.
 
 **Aceitação:** validar visual mobile em 360/390/430 px e tablet/desktop, preservar identidade e acessibilidade, testar com cache frio e quente. Comparar no PageSpeed da **produção após publicação manual**, idealmente várias execuções mobile em condições comparáveis. Não declarar melhoria antes de medir. Se o LCP piorar ou o brilho perder qualidade, reverter o experimento.
+
+## Verificações automáticas (GitHub Actions)
+
+Workflow: `.github/workflows/quality.yml`, executado ao enviar commits para `develop`, abrir/atualizar PRs com destino a `main` ou `develop`, ou iniciar manualmente na aba Actions.
+
+O job **Validar site estatico** executa `node --check` em `script.js` e `scripts/check-quality.mjs` e uma verificação leve sem dependências externas com `node scripts/check-quality.mjs`:
+- idioma, título, meta description, canonical, âncoras internas e IDs duplicados;
+- existência de recursos locais referenciados no HTML e atributo `alt` das imagens;
+- CSS com chaves equilibradas e preferência por movimento reduzido;
+- estado ARIA do menu, referências básicas de `robots.txt`, sitemap e JSON-LD.
+
+**Limites:** são verificações estáticas de regressão, não substituem testes com navegador, validadores completos de HTML/CSS, testes de acessibilidade com tecnologia assistiva ou Lighthouse/Core Web Vitals.
+
+**Política de publicação:** a CI não inclui comandos de deploy e não modifica a produção. Antes de exigir o status de CI como regra de proteção de branch, confirmar uma execução verde e a disponibilidade desse recurso no plano do repositório.
