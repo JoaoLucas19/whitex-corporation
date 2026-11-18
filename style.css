@@ -21,3 +21,11 @@ section[id] { scroll-margin-top: 90px; }
 @media (max-width: 700px) {
   .main-nav a:focus-visible { outline-offset: -3px; }
 }
+
+/* V3.3: LCP do SVG principal no celular.
+   Evita dois filtros drop-shadow aninhados sobre a mesma imagem,
+   mantendo um brilho menor e preservando os efeitos do desktop. */
+@media (max-width: 700px) {
+  .hero-symbol { filter: none; }
+  .hero-symbol img { filter: drop-shadow(0 8px 14px #7c5cff50); }
+}

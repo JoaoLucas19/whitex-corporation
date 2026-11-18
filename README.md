@@ -70,3 +70,13 @@ Melhorias na branch `develop`:
 7. Medir LCP, INP e CLS após a publicação; o relatório de dados reais do Search Console pode demorar e não possuir dados suficientes para um site novo.
 
 **Importante:** essas alterações não garantem determinada pontuação Lighthouse ou aprovação de Core Web Vitals. CSS/JS alterados devem ser implantados juntos com o HTML; produção permanece manual.
+
+## Experimento LCP mobile (V3.3)
+
+**Linha de base (PageSpeed Insights mobile, 18/11/2026):** desempenho 96/100, LCP 2,6 s, FCP 1,5 s. No detalhamento do LCP, o elemento é `section.hero > div.hero-visual > div.hero-symbol > img` (`assets/logo-wx.svg`). Subpartes: TTFB 0 ms, atraso no carregamento 400 ms, duração do carregamento 440 ms e atraso na renderização 1700 ms.
+
+**Hipótese a testar:** dois efeitos `filter: drop-shadow` em elementos aninhados (pai e SVG) ampliam o trabalho de composição/renderização no celular. O SVG já é pequeno e prioritário.
+
+**Alterações:** no mobile (<=700px), remover o filtro do contêiner e diminuir o filtro na imagem; manter a aparência desktop. Mudar a decodificação da imagem de LCP para `sync`, mantendo `fetchpriority="high"`. Versionar URL do CSS para evitar estilo antigo em cache.
+
+**Aceitação:** validar visual mobile em 360/390/430 px e tablet/desktop, preservar identidade e acessibilidade, testar com cache frio e quente. Comparar no PageSpeed da **produção após publicação manual**, idealmente várias execuções mobile em condições comparáveis. Não declarar melhoria antes de medir. Se o LCP piorar ou o brilho perder qualidade, reverter o experimento.
