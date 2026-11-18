@@ -6,3 +6,18 @@
 .hero-symbol{font:inherit;letter-spacing:normal;padding:0;line-height:normal;text-shadow:none;transform:rotate(-8deg);width:min(95%,390px)}
 .hero-symbol img{width:100%;height:auto;display:block;filter:drop-shadow(0 16px 28px #7c5cff50)}
 @media (prefers-reduced-motion:reduce){.hero-symbol{transform:none}}
+
+/* Acessibilidade e estabilidade de layout - V3.2 */
+:where(a, button):focus-visible {
+  outline: 3px solid #d1c4ff;
+  outline-offset: 4px;
+}
+.skip-link:focus-visible {
+  outline-color: #4d2abf;
+}
+main:focus { outline: none; }
+section[id] { scroll-margin-top: 90px; }
+.hero-symbol img { aspect-ratio: 340 / 240; }
+@media (max-width: 700px) {
+  .main-nav a:focus-visible { outline-offset: -3px; }
+}
