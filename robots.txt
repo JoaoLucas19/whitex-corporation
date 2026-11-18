@@ -1,0 +1,7 @@
+# WhiteX Corporation - https://whitexcorporation.com.br/
+User-agent: *
+Allow: /
+Disallow: /whitex-develop-preview/
+Disallow: /whitex-git-preview/
+
+Sitemap: https://whitexcorporation.com.br/sitemap.xml
