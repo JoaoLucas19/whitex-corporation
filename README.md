@@ -94,3 +94,21 @@ O job **Validar site estatico** executa `node --check` em `script.js` e `scripts
 **Limites:** são verificações estáticas de regressão, não substituem testes com navegador, validadores completos de HTML/CSS, testes de acessibilidade com tecnologia assistiva ou Lighthouse/Core Web Vitals.
 
 **Política de publicação:** a CI não inclui comandos de deploy e não modifica a produção. Antes de exigir o status de CI como regra de proteção de branch, confirmar uma execução verde e a disponibilidade desse recurso no plano do repositório.
+
+## WhiteX Analytics (experimento na develop, V3.4)
+
+- GTM (contêiner): `GTM-PVQCXJZ4`.
+- GA4 (ID de medição): `G-ZJ0LZC8M9B`.
+- O site **não instala gtag.js diretamente**. Carrega exclusivamente o GTM por `analytics-consent.js`, somente após consentimento explícito para medição (modo básico).
+- Escolha aceita/rejeitada fica no `localStorage` da origem, chave `whitex_analytics_consent_v1`. É possível revisar pela opção **Preferências de cookies** no rodapé. Revogar a aceitação recarrega a página para encerrar tags já executadas.
+- `privacidade.html` contém um informativo inicial que deve ser revisado quanto ao tratamento de dados e às políticas efetivas da organização antes de ir para produção.
+
+### Configuração pendente no Google Tag Manager
+1. No contêiner `GTM-PVQCXJZ4`, crie uma tag **Google tag** com o **Tag ID** `G-ZJ0LZC8M9B`, acionada em **Initialization - All Pages** ou **All Pages**, sem instalar segundo snippet do GA4 no HTML.
+2. Evite outras tags e pixels sem revisão de privacidade. Tags de analytics devem respeitar consentimento, inclusive as adicionadas futuramente ao GTM.
+3. Antes de publicar o contêiner, teste com **Preview/Tag Assistant** no endereço protegido `/whitex-develop-preview/`. Primeiro sem consentimento (não deve haver requisições `gtm.js` ou `collect` do GA4), depois aceite e confira se a tag foi carregada.
+4. Teste rejeição, recarga, persistência da escolha, abertura das preferências e revogação de consentimento; confirme que visitas rejeitadas não disparam medição.
+5. Confirme a recepção de eventos em **GA4 > DebugView / Tempo real**, de preferência sem publicar o contêiner antes de validar o teste. As visitas à prévia podem aparecer como testes nos dados de GA4; configure filtro ou não use a prévia em análises reais.
+6. Após revisão e aprovação, PR para `main`, homologação e publicação **manual**. Não copiar `.htaccess` e `.htpasswd` das prévias.
+
+**Limites:** consentimento básico significa que a tag não carrega antes do aceite, mas a autorização não dispensa revisão de demais tecnologias, política de privacidade e requisitos LGPD. Nenhum resultado real do GA4 foi validado nesta etapa.
