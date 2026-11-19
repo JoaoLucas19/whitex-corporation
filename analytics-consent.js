@@ -3,7 +3,7 @@
   'use strict';
 
   const STORAGE_KEY = 'whitex_analytics_consent_v1';
-  const GTM_ID = 'GTM-PVQCXJZ4';
+  const GTM_ID = 'GTM-K2P33XQZ';
   const banner = document.getElementById('cookie-banner');
   const panel = document.getElementById('cookie-preferences');
   const analyticsChoice = document.getElementById('cookie-analytics-choice');
