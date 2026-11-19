@@ -112,3 +112,17 @@ O job **Validar site estatico** executa `node --check` em `script.js` e `scripts
 6. Após revisão e aprovação, PR para `main`, homologação e publicação **manual**. Não copiar `.htaccess` e `.htpasswd` das prévias.
 
 **Limites:** consentimento básico significa que a tag não carrega antes do aceite, mas a autorização não dispensa revisão de demais tecnologias, política de privacidade e requisitos LGPD. Nenhum resultado real do GA4 foi validado nesta etapa.
+
+## Revisão da página de privacidade (pré-publicação V3.4)
+
+A política em `privacidade.html` foi expandida em 19/11/2026 para explicar finalidade da medição, preferências em `localStorage`, serviços Google Fonts/GTM/GA4, revogação, contato, direitos dos titulares e atualizações da política. O texto evita inventar prazo de retenção ou identidade jurídica ainda não confirmados.
+
+**Pendências para aprovação final e publicação:**
+- Confirmar nome jurídico/identificação e endereço de contato do controlador, se aplicáveis; confirmar se o e-mail `contato@whitexcorporation.com.br` é o canal adequado.
+- Verificar a retenção configurada em GA4 (Administrador → Retenção de dados) e regras reais de exclusão/cookies; complementar a política com prazo efetivo se confirmado.
+- Conferir configurações de compartilhamento de dados com Google, Google Signals, outras tags e eventuais transferências internacionais, e completar a descrição somente com fatos verificados.
+- Confirmar política de logs e retenção do provedor Hostinger e requisitos aplicáveis da LGPD, com revisão jurídica quando disponível.
+- Revisar visual da página de privacidade em mobile/desktop e botão de reabertura de preferências; executar CI.
+- Não afirmar que revogar consentimento remove dados históricos do GA4.
+
+A publicação da versão GTM não substitui a revisão do site. Produção permanece publicada manualmente.
