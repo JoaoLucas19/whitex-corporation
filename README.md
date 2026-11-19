@@ -126,3 +126,20 @@ A política em `privacidade.html` foi expandida em 19/11/2026 para explicar fina
 - Não afirmar que revogar consentimento remove dados históricos do GA4.
 
 A publicação da versão GTM não substitui a revisão do site. Produção permanece publicada manualmente.
+
+## Configurações de privacidade GA4 confirmadas (19/11/2026)
+
+Conforme telas de administração compartilhadas durante a preparação da V3.4:
+- Retenção de dados de eventos: **2 meses**.
+- Retenção de dados de usuários: **2 meses**.
+- Redefinir a retenção na nova atividade do usuário: **desativado**.
+- Compartilhamento na conta GA4, salvo pelo administrador: **Produtos e serviços do Google: desativado**; **Contribuições de estimativas e insights de negócios: desativado**; **Suporte técnico: ativado**; **Recomendações para sua empresa: desativado**.
+- Conta do Analytics: `Default Account for Firebase`, contendo somente a propriedade WhiteX Corporation segundo o administrador.
+- GTM `GTM-K2P33XQZ`: versão **2** (`WhiteX Analytics - V1.0`) publicada em 19/11/2026.
+- Eventos `page_view`, `scroll` e `user_engagement` recebidos no relatório de tempo real da propriedade em teste.
+
+A retenção configurada não cobre necessariamente todos os dados do GA4 ou os registros de outros fornecedores. A página de privacidade descreve essa distinção.
+
+**Pendências que continuam abertas:** confirmar identificação do controlador e termos contratuais aplicáveis ao tratamento, inclusive a situação de aceite dos Termos de Tratamento de Dados; avaliar configuração de Google Signals, outras integrações e retenção dos logs de hospedagem. A aprovação técnica não equivale a uma certificação jurídica de conformidade.
+
+Publicação da V3.4 no domínio principal continua manual, após revisão e backup.
