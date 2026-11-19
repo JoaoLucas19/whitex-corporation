@@ -97,14 +97,14 @@ O job **Validar site estatico** executa `node --check` em `script.js` e `scripts
 
 ## WhiteX Analytics (experimento na develop, V3.4)
 
-- GTM (contêiner): `GTM-PVQCXJZ4`.
+- GTM (contêiner): `GTM-K2P33XQZ`.
 - GA4 (ID de medição): `G-ZJ0LZC8M9B`.
 - O site **não instala gtag.js diretamente**. Carrega exclusivamente o GTM por `analytics-consent.js`, somente após consentimento explícito para medição (modo básico).
 - Escolha aceita/rejeitada fica no `localStorage` da origem, chave `whitex_analytics_consent_v1`. É possível revisar pela opção **Preferências de cookies** no rodapé. Revogar a aceitação recarrega a página para encerrar tags já executadas.
 - `privacidade.html` contém um informativo inicial que deve ser revisado quanto ao tratamento de dados e às políticas efetivas da organização antes de ir para produção.
 
 ### Configuração pendente no Google Tag Manager
-1. No contêiner `GTM-PVQCXJZ4`, crie uma tag **Google tag** com o **Tag ID** `G-ZJ0LZC8M9B`, acionada em **Initialization - All Pages** ou **All Pages**, sem instalar segundo snippet do GA4 no HTML.
+1. No contêiner `GTM-K2P33XQZ`, crie uma tag **Google tag** com o **Tag ID** `G-ZJ0LZC8M9B`, acionada em **Initialization - All Pages** ou **All Pages**, sem instalar segundo snippet do GA4 no HTML.
 2. Evite outras tags e pixels sem revisão de privacidade. Tags de analytics devem respeitar consentimento, inclusive as adicionadas futuramente ao GTM.
 3. Antes de publicar o contêiner, teste com **Preview/Tag Assistant** no endereço protegido `/whitex-develop-preview/`. Primeiro sem consentimento (não deve haver requisições `gtm.js` ou `collect` do GA4), depois aceite e confira se a tag foi carregada.
 4. Teste rejeição, recarga, persistência da escolha, abertura das preferências e revogação de consentimento; confirme que visitas rejeitadas não disparam medição.
