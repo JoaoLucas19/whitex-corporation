@@ -32,6 +32,7 @@ jobs:
       - name: Validar sintaxe JavaScript
         run: |
           node --check script.js
+          node --check analytics-consent.js
           node --check scripts/check-quality.mjs
       - name: Verificar HTML, arquivos locais, acessibilidade e SEO basico
         run: node scripts/check-quality.mjs
